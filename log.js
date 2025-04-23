@@ -1,3 +1,4 @@
+//doesnt know what to do with it 
 const savedScores = JSON.parse(localStorage.getItem("spaceGameStorage"));
 
 const table = document.getElementById("scores");

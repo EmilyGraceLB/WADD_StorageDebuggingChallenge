@@ -259,16 +259,21 @@ document.getElementById("to-log").addEventListener("click", function () {
 /**
  * Stores the scores at the end of the game
  */
+
+//main errors include 
 function saveScores() {
     let currentScores = [];
-    let player = sessionStorage.getItem("spaceGameName");
+    //need to use local storage
+    let player = localStorage.getItem("spaceGameName");
+    //maybe to do with order? push scores to grid before trying to display 
     if (localStorage.getItem("spaceGameStorage") !== null) {
         currentScores = localStorage.getItem("spaceGameStorage");
-    }
+    } 
     currentScores.push({
         player: player,
         satellites: document.getElementById("satellite-result").innerText,
         meteors: document.getElementById("meteor-result").innerText
     })
-    localStorage.setItem("spaceGameStorage", currentScores);
+    localStorage.setItem("spaceGameStorage", JSON.stringify(currentScores));
+    //using JSON to get data
 }
